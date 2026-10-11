@@ -1,0 +1,11 @@
+# Análisis de resultados: experimentos con MLflow
+
+Se realizaron múltiples experimentos con un modelo de regresión logística para analizar el efecto de diferentes hiperparámetros sobre la clasificación del riesgo en el conjunto de datos DataCo Supply Chain. Las corridas se registraron con MLflow, lo que permitió comparar sus parámetros y métricas de evaluación.
+
+Entre las configuraciones observadas, la corrida con `C=1.0`, `class_weight=none` y `max_iter=1000` obtuvo una accuracy aproximada de 70.18 %, una precisión de 84.74 %, un recall de 55.65 %, un F1-score de 67.18 % y un ROC-AUC de 73.76 %. Por su parte, la configuración con `class_weight=balanced` presentó una accuracy aproximada de 69.70 % y un F1-score de 66.33 % en una de las corridas comparadas.
+
+Los resultados sugieren que la regularización y el tratamiento del desbalance de clases pueden influir en el desempeño del modelo. En las configuraciones observadas, el uso de `class_weight=balanced` no produjo una mejora del F1-score. Sin embargo, para determinar cuál hiperparámetro tiene mayor influencia sería necesario comparar sistemáticamente sus valores, manteniendo constantes los demás parámetros.
+
+Una limitación observada es que el recall se mantiene alrededor del 55–56 %, por lo que el modelo no identifica todos los casos positivos de riesgo. Esto es relevante porque, en un contexto de cadena de suministro, los falsos negativos podrían representar riesgos que el sistema no detecta. Además, MLflow mostró advertencias relacionadas con columnas enteras que pueden contener valores faltantes y opciones del solucionador de SciPy obsoletas.
+
+En conclusión, la instrumentación con MLflow facilita la trazabilidad y comparación de experimentos. Como mejora futura, se recomienda revisar el tratamiento de valores faltantes, evaluar otras estrategias para las clases desbalanceadas y realizar una búsqueda sistemática de hiperparámetros. También conviene comprobar la reproducibilidad de las corridas bajo las mismas condiciones y argumentos.
