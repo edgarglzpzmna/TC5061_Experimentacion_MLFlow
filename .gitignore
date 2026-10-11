@@ -1,0 +1,55 @@
+# ==========================================
+# Entornos virtuales de Python
+# ==========================================
+.venv/
+venv/
+env/
+
+# ==========================================
+# Archivos temporales de Python
+# ==========================================
+__pycache__/
+*.py[cod]
+*.pyo
+
+# ==========================================
+# macOS
+# ==========================================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ==========================================
+# MLflow: base de datos y ejecuciones locales
+# ==========================================
+mlruns/
+mlartifacts/
+mlflow.db
+
+# ==========================================
+# Artefactos generados localmente
+# ==========================================
+artifacts/
+
+# ==========================================
+# Datos locales: no publicar los CSV de data/
+# ==========================================
+data/*.csv
+# Dataset descriptivo ubicado en la raíz
+/DescriptionDataCoSupplyChain.csv
+# ==========================================
+# Jupyter Notebook
+# ==========================================
+.ipynb_checkpoints/
+
+# ==========================================
+# Logs y archivos temporales
+# ==========================================
+*.log
+*.tmp
+
+# ==========================================
+# Configuración local de editores
+# ==========================================
+.vscode/
+.idea/
